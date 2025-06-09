@@ -23,6 +23,8 @@ repositories {
 	mavenCentral()
 }
 
+
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
@@ -33,4 +35,19 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+
+jar {
+	enabled = false // plain.jar 생성 완전히 비활성화}
+}
+
+tasks.register('getAppName') {
+	doLast {
+		println "${rootProject.name}" }
+}
+
+tasks.register('getAppVersion') {
+	doLast {
+		println "${project.version}" }
 }

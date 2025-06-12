@@ -19,6 +19,7 @@ public class ApiCommonAdvice {
     @ExceptionHandler({BadParameter.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiResponseDto<String> handleBadParameter(BadParameter e){
+        e.printStackTrace();
         return ApiResponseDto.createError(
                 e.getErrorCode(),
                 e.getErrorMessage()
@@ -28,6 +29,7 @@ public class ApiCommonAdvice {
     @ExceptionHandler({NotFound.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ApiResponseDto<String> handleNotFound(NotFound e){
+        e.printStackTrace();
         return ApiResponseDto.createError(
                 e.getErrorCode(),
                 e.getErrorMessage()
@@ -37,6 +39,7 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ClientError.class})
     public ApiResponseDto<String> handleClientError(ClientError e) {
+        e.printStackTrace();
         return ApiResponseDto.createError(
                 e.getErrorCode(),
                 e.getErrorMessage()
@@ -46,6 +49,7 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler({Exception.class})
     public ApiResponseDto<String> handleException(Exception e) {
+        e.printStackTrace();
         return ApiResponseDto.createError(
                 "ServerError", "서버 에러입니다."
         );

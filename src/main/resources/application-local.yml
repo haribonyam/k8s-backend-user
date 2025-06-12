@@ -16,3 +16,5 @@ spring:
     generate-ddl: true  # 테스트 환경에서만 사용
     show-sql: true
     open-in-view: false
+  kafka:
+  bootstrap-servers: localhost:9092

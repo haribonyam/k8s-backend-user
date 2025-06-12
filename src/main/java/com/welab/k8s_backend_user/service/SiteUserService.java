@@ -20,7 +20,9 @@ public class SiteUserService {
     @Transactional
     public void registerUser(SiteUserRegisterDto registerDto) {
         SiteUser siteUser = registerDto.toEntity();
+
         siteUserRepository.save(siteUser);
+
         SiteUserInfoEvent event = SiteUserInfoEvent.fromEntity("Create", siteUser);
         kafkaMessageProducer.send(SiteUserInfoEvent.Topic, event);
     }

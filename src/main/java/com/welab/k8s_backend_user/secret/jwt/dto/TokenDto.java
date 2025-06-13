@@ -2,7 +2,7 @@ package com.welab.k8s_backend_user.secret.jwt.dto;
 
 import lombok.*;
 
-@NoArgsConstructor(access = AccessLevel.MODULE.PRIVATE)
+@NoArgsConstructor
 public class TokenDto {
     @Getter
     @Setter
